@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantiChat 0.3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOPBAR: Header 1 links + Header 2 rechts -->
+    <div id="topbar">
+
+        <!-- HEADER 1 -->
+        <header id="header1">
+            <span id="appName">PantiChat</span>
+
+            <div id="dateTime">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+
+            <div id="alarmArea">
+                <span id="alarmIcon">⏰</span>
+                <span id="alarmStatus"></span>
+            </div>
+        </header>
+
+        <!-- HEADER 2 (Modus + Auswahl) -->
+        <header id="header2">
+            <div id="pantilogo">🌙</div>
+            <div id="modeDisplay">SERVER</div>
+            <div id="modeSelection"></div>
+        </header>
+
+    </div>
+
+    <!-- WHEEL-MENÜ (Moduswahl) -->
+    <div id="wheelMenu" class="hidden">
+        <div class="wheelOption" data-mode="SERVER">SERVER</div>
+        <div class="wheelOption" data-mode="FREUNDE">FREUNDE</div>
+        <div class="wheelOption" data-mode="GRUPPEN">GRUPPEN</div>
+        <div class="wheelOption" data-mode="FAMILIE">FAMILIE</div>
+    </div>
+
+    <!-- HAUPTLAYOUT -->
+    <div id="main-layout">
+
+        <!-- LINKES SIDEBAR: Channels -->
+        <aside id="sidebar">
+            <div id="channels"></div>
+        </aside>
+
+        <!-- CHAT-BEREICH -->
+        <main id="chat">
+            <div id="chat-header">
+                <div id="currentChannelName"># Allgemein</div>
+                <div id="chatHeaderIcons">
+                    <div id="serverUserToggle" class="user-panel-toggle">👤</div>
+                    <div id="userPanelToggle" class="user-panel-toggle">👥</div>
+                </div>
+            </div>
+
+            <div id="messages"></div>
+
+            <div id="input-area">
+                <input id="message-input" placeholder="Nachricht eingeben...">
+                <button id="send-btn">Senden</button>
+            </div>
+
+            <!-- Floating Panel für aktive Nutzer (Freunde/Familie/Gruppen) -->
+            <div id="floatingUserPanel" class="hidden"></div>
+        </main>
+
+        <!-- RECHTE SIDEBAR: Aktive Nutzer (nur bei SERVER) -->
+        <aside id="rightSidebar" class="hidden">
+            <h3>Aktive Nutzer</h3>
+            <div id="activeUsers"></div>
+        </aside>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

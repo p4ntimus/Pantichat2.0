@@ -1,0 +1,13 @@
+Dieser Ordner ist für zukünftige Assets reserviert:
+- Logos
+- Icons
+- UI-Grafiken
+- Hintergründe
+- Animationen
+- Soundeffekte (optional)
+
+Aktuell wird er von PantiChat 0.3 nicht benötigt.
+
+
+
+ databaseURL: "https://panti-chat-default-rtdb.europe-west1.firebasedatabase.app",

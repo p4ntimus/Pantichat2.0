@@ -1,0 +1,307 @@
+/* Grundlayout */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #0f0f0f;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* TOPBAR */
+#topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+/* HEADER 1 (links) */
+#header1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 0px;
+    height: 100%;
+    width: 250px; /* exakt wie Sidebar */
+    border-right: 1px solid #333;
+}
+
+/* HEADER 2 (rechts) */
+#header2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 12px;
+    height: 100%;
+    flex: 1;
+}
+
+#pantilogo {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#modeDisplay {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #cfc3ff;
+}
+
+/* Mode-Auswahl (C4 – Glow-Tabs) */
+#modeSelection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.modeItem {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #3b2a66;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    color: #b9a7ff;
+    background: radial-gradient(circle at 0 0, #2a1b44 0, #151020 60%, #0b0814 100%);
+    box-shadow: 0 0 0 rgba(122, 60, 255, 0);
+    transition: 0.2s;
+}
+
+.modeItem:hover {
+    box-shadow: 0 0 8px rgba(122, 60, 255, 0.6);
+    border-color: #7a3cff;
+}
+
+.modeItem.active {
+    color: #ffffff;
+    border-color: #b58cff;
+    box-shadow: 0 0 12px rgba(181, 140, 255, 0.9);
+    background: radial-gradient(circle at 0 0, #3b255f 0, #1a1230 60%, #0b0814 100%);
+}
+
+/* WHEEL-MENÜ */
+#wheelMenu {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 999;
+}
+
+#wheelMenu.hidden {
+    display: none;
+}
+
+.wheelOption {
+    position: absolute;
+    background: #222;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: 0.25s;
+    border: 1px solid #444;
+    font-size: 12px;
+}
+
+.wheelOption:hover {
+    background: #7a3cff;
+}
+
+/* Positionen im Kreis */
+.wheelOption:nth-child(1) { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.wheelOption:nth-child(2) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+.wheelOption:nth-child(3) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.wheelOption:nth-child(4) { top: 50%; left: 0; transform: translate(-50%, -50%); }
+
+/* Hauptlayout */
+#main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar links */
+#sidebar {
+    width: 250px;
+    background: #141414;
+    border-right: 1px solid #333;
+    padding: 0;
+    overflow-y: auto;
+}
+
+#channels {
+    padding: 10px;
+}
+
+/* Channels (nur Channels, keine Gruppen-Namen) */
+.channel {
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.channel:hover {
+    background: #222;
+}
+
+.channel.active {
+    background: #7a3cff33;
+    color: #fff;
+}
+
+/* Chatbereich */
+#chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1b1b1b;
+    position: relative;
+}
+
+/* Chat-Header */
+#chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid #333;
+    background: #181818;
+}
+
+#currentChannelName {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#chatHeaderIcons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-panel-toggle {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Nachrichten */
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Eingabebereich */
+#input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #333;
+    background: #111;
+}
+
+#input-area input {
+    flex: 1;
+    padding: 8px;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+}
+
+#input-area button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background: #7a3cff;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Rechte Sidebar (nur bei SERVER) */
+#rightSidebar {
+    width: 250px;
+    background: #141414;
+    border-left: 1px solid #333;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#rightSidebar.hidden {
+    display: none;
+}
+
+#rightSidebar h3 {
+    margin-top: 0;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+#activeUsers .user {
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+#activeUsers .user.online {
+    color: #7bff7b;
+}
+
+#activeUsers .user.offline {
+    color: #888;
+}
+
+/* Floating User Panel (Freunde/Familie/Gruppen) */
+#floatingUserPanel {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 200px;
+    max-height: 250px;
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 8px;
+    overflow-y: auto;
+    z-index: 900;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+}
+
+#floatingUserPanel.hidden {
+    display: none;
+}
+
+#floatingUserPanel h4 {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+}
+
+#floatingUserPanel .user {
+    padding: 3px 4px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+#floatingUserPanel .user.online {
+    color: #7bff7b;
+}
+
+#floatingUserPanel .user.offline {
+    color: #888;
+}
