@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>
+if (!localStorage.getItem("username")) {
+    window.location.href = "modules/login/login.html";
+}
+</script>
 
     <!-- TOPBAR: Header 1 links + Header 2 rechts -->
     <div id="topbar">
@@ -79,8 +84,14 @@
         </aside>
 
     </div>
-
-    <script src="app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
+    
+    <link rel="stylesheet" href="modules/chat/chat.css">
+    <script src="modules/chat/chat.js"></script>
+    <script src="core/modeController.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,20 @@
+.message {
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 8px;
+    max-width: 70%;
+    color: white;
+    font-size: 14px;
+}
+
+.message.me {
+    background: #7a00ff;
+    margin-left: auto;
+    text-align: right;
+}
+
+.message.other {
+    background: #333;
+    margin-right: auto;
+    text-align: left;
+}
